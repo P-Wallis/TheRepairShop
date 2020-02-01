@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     const string c_horizontalAxis = "Horizontal";
     const string c_verticalAxis = "Vertical";
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 movement = new Vector3(Input.GetAxis(c_horizontalAxis), 0, Input.GetAxis(c_verticalAxis));
         bool isMoving = false;
