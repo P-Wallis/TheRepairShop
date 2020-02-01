@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1426700982709084013}
   m_Layer: 5
   m_Name: Customer Portrait
-  m_TagString: Untagged
+  m_TagString: CustomerPortraitImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 1719352520982448631}
   - component: {fileID: 1299735696361465849}
   - component: {fileID: 2498765674390548534}
+  - component: {fileID: 4188769388688925971}
   m_Layer: 5
   m_Name: Ticket
   m_TagString: Untagged
@@ -215,6 +216,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 17.413898, y: 97.78145}
   m_EdgeRadius: 0
+--- !u!114 &4188769388688925971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281213227623019068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92a2d4bf23f1cc47ae8ecdbc4f4b99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6646481454848371126
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +241,7 @@ GameObject:
   - component: {fileID: 820425584953737217}
   m_Layer: 5
   m_Name: Item
-  m_TagString: Untagged
+  m_TagString: ItemImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,7 +291,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e0eacb07703102d41bbfcea88eb0a3c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5a72a97059124348a1fdf256027a644, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
