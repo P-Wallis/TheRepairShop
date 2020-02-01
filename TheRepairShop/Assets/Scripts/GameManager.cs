@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public GameObject item;
     public Transform UICanvas;
 
-    // Start is called before the first frame update
     void Start()
     {
         levelTimer = 180;
@@ -19,7 +18,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         levelTimer -= Time.deltaTime;
