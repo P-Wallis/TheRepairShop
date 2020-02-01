@@ -31,6 +31,8 @@ public class PlayerItemInteraction : MonoBehaviour
         {
             m_heldItem = m_currentRegion.ItemInteraction(m_heldItem);
             Debug.Log("The player is now holding '" + m_heldItem.m_name+"'");
+            m_heldItem.transform.parent = transform;
+            m_heldItem.transform.localPosition = Vector3.up * 2.5f;
         }
     }
 }
