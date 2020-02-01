@@ -362,6 +362,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!224 &1365081614 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2144395893533341030, guid: 577a6ff4b5de3ad41ac897f56ca9b6d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 9186003405319928522}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1991124566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1991124568}
+  - component: {fileID: 1991124567}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1991124567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991124566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17c85694318b234fa3ef294573d6a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ticket: {fileID: 2281213227623019068, guid: 7d3d3fc35c5122d4f81f1ee79c7ee5db, type: 3}
+  item: {fileID: 8332843913354016990, guid: 500fbb037804c4413951021ba40793be, type: 3}
+  UICanvas: {fileID: 1365081614}
+--- !u!4 &1991124568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991124566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5661226048208404663
 PrefabInstance:
   m_ObjectHideFlags: 0
