@@ -30912,6 +30912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 10
+  m_animObject: {fileID: 6700618369644687234}
 --- !u!54 &7134492155712726753
 Rigidbody:
   m_ObjectHideFlags: 0
