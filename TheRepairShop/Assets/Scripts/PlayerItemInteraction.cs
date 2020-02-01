@@ -30,9 +30,16 @@ public class PlayerItemInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && m_currentRegion != null)
         {
             m_heldItem = m_currentRegion.ItemInteraction(m_heldItem);
-            Debug.Log("The player is now holding '" + m_heldItem.m_name+"'");
-            m_heldItem.transform.parent = transform;
-            m_heldItem.transform.localPosition = Vector3.up * 2.5f;
+            if (m_heldItem != null)
+            {
+                Debug.Log("The player is now holding '" + m_heldItem.m_name + "'!");
+                m_heldItem.transform.parent = transform;
+                m_heldItem.transform.localPosition = Vector3.up * 2.5f;
+            }
+            else
+            {
+                Debug.Log("The player is not holding anything.");
+            }
         }
     }
 }
