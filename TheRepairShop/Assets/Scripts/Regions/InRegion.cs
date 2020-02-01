@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class InRegion : RegionBase
 {
-    public List<Item> m_items = new List<Item>();
+    public static InRegion instance;
+    //public List<Item> m_items = new List<Item>();
     private Queue<Item> m_itemQueue = new Queue<Item>();
 
-    private void Start()
+    public override void Awake()
     {
-        for (int i = 0; i < m_items.Count; i++)
-        {
-            m_itemQueue.Enqueue(m_items[i]);
-            m_items[i].transform.position = transform.position + (Vector3.up * (m_items.Count - i));
-        }
+        base.Awake();
+        instance = this;
     }
+
+    public void AddItemToQueue(GameObject itemGameObject)
+    {
+        Item item = itemGameObject.GetComponent<Item>();
+        m_itemQueue.Enqueue(item);
+        item.transform.position = transform.position + Vector3.up;
+    }
+
 
     public override Item ItemInteraction(Item playerItem)
     {
