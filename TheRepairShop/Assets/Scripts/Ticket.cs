@@ -37,8 +37,8 @@ public class Ticket : MonoBehaviour
 
     void InitializeVars()
     {
-        custPortImgSrc = GameObject.FindGameObjectWithTag("CustomerPortraitImage").GetComponent<Image>();
-        itemImgSrc = GameObject.FindGameObjectWithTag("ItemImage").GetComponent<Image>();
+        custPortImgSrc = gameObject.GetComponentsInChildren<Image>()[1];
+        itemImgSrc = gameObject.GetComponentsInChildren<Image>()[2];
 
         custPortImgGUIDs = AssetDatabase.FindAssets("-CustomerPortrait-", new[] { "Assets/UI/Images" });
         itemImgGUIDs = AssetDatabase.FindAssets("-ItemImage-", new[] { "Assets/UI/Images" });
