@@ -35,6 +35,12 @@ public class TicketQue : MonoBehaviour
         //this.transform.Translate(targetPos.x, currentPos.y, currentPos.z);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        SlideTicket();
+        GetComponent<Collider2D>().enabled = false;
+    }
+
     IEnumerator TicketSlider()
     {
         float t = 0f;
@@ -44,5 +50,6 @@ public class TicketQue : MonoBehaviour
             transform.position = Vector3.Lerp(currentPos, targetPos, Mathf.SmoothStep(0f, 1f, t));
             yield return null;
         }
+        GetComponent<Collider2D>().enabled = true;
     }
 }
