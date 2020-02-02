@@ -7,11 +7,12 @@ using UnityEditor;
 public class Ticket : MonoBehaviour
 {
     [HideInInspector] public Item item;
+    WorkType type;
 
     public Image custPortImgSrc, itemImgSrc;
 
     string[] custPortImgGUIDs, itemImgGUIDs;
-    List<Sprite> custPortList, itemImgList;
+    public List<Sprite> custPortList, itemImgList;
 
     public Slider sliderSrc;
     public Image fillSrc;
@@ -33,6 +34,8 @@ public class Ticket : MonoBehaviour
         AudioPlayer.Instance.PlayAudioOnce("Bell1");
 
         InitializeVars();
+
+        AssignTicketTypeImage();
         //AssignRandomImage();
     }
 
@@ -45,7 +48,7 @@ public class Ticket : MonoBehaviour
 
     void InitializeVars()
     {
-        WorkType type = item.GetRequiredWork();
+        type = item.GetRequiredWork();
 
         custPortImgGUIDs = AssetDatabase.FindAssets("-CustomerPortrait-", new[] { "Assets/UI/Images" });
         itemImgGUIDs = AssetDatabase.FindAssets("-ItemImage-", new[] { "Assets/UI/Images" });
@@ -81,15 +84,6 @@ public class Ticket : MonoBehaviour
                 );
             flag = !flag;
         }
-    }
-
-    void AssignRandomImage()
-    {
-        var randInt = Random.Range(0, custPortList.Count);
-        //custPortImgSrc.sprite = custPortList[randInt];
-
-        //randInt = Random.Range(0, itemImgList.Count);
-        itemImgSrc.sprite = itemImgList[randInt];
     }
 
     void ChangeCustomerPortrait()
@@ -128,6 +122,25 @@ public class Ticket : MonoBehaviour
             sliderSrc.value = 1;
         }
     }
+
+    void AssignTicketTypeImage()
+    {
+        if (type == WorkType.CARPENTER)
+        {
+            print("this is for carpenter");
+        }
+        else
+            print("this is not for carpenter");
+    }
+
+    //void AssignRandomImage()
+    //{
+    //    var randInt = Random.Range(0, custPortList.Count);
+    //    //custPortImgSrc.sprite = custPortList[randInt];
+
+    //    //randInt = Random.Range(0, itemImgList.Count);
+    //    itemImgSrc.sprite = itemImgList[randInt];
+    //}
 
     //void DestroyOnFail()
     //{
