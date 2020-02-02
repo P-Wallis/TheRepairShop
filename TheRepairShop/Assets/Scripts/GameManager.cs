@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class GameManager : MonoBehaviour
     [Range(0.01f, 0.25f)] public float ticketReductionIncrement = 0.01f;
     [Range(1f, 2f)] public float ticketReductionMultiplier = 1.5f;
     [Range(1f, 50f)]public float itemSpeed = 10f;
+
+    private float reputation = 2.5f;
+    public float Reputation { get { return reputation; } set { reputation = value; OnReputationUpdate?.Invoke(); } }
+    private int numberOfReviews = 2;
+    public event Action OnReputationUpdate;
 
     private void Awake()
     {
@@ -52,6 +58,7 @@ public class GameManager : MonoBehaviour
         AudioPlayer.Instance.PlayAudioOnce("GameStart");
         AudioPlayer.Instance.PlayAudioLoop("BackgroundMusic1");
     }
+
     void Update()
     {
         if(IsGameRunning)
@@ -71,6 +78,16 @@ public class GameManager : MonoBehaviour
             LevelEnd();
 
         }
+    }
+
+    public void UpdateReputationWithNewReview(float reviewScore)
+    {
+        numberOfReviews++;
+        float newReviewPercentage = 1f / numberOfReviews;
+        reputation = Mathf.Lerp(reputation, reviewScore, newReviewPercentage);
+
+        if (OnReputationUpdate != null)
+            OnReputationUpdate();
     }
 
     public void AddAnotherTicket()
@@ -105,6 +122,20 @@ public class GameManager : MonoBehaviour
         completedTicket.Complete();
         pendingTickets.Remove(completedTicket);
         completedTickets.Add(completedTicket);
+
+        switch (completedTicket.curCustImg)
+        {
+            case Ticket.CustomerImage.happy:
+                UpdateReputationWithNewReview(5);
+                break;
+            case Ticket.CustomerImage.neutral:
+                UpdateReputationWithNewReview(3);
+                break;
+            case Ticket.CustomerImage.sad:
+                UpdateReputationWithNewReview(1);
+                break;
+        }
+
         TotalSuccess++;
     }
     public void LevelEnd() {
@@ -117,7 +148,8 @@ public class GameManager : MonoBehaviour
         else GameEnd();
     }
 
-    public void GameEnd() { 
+    public void GameEnd()
+    { 
     
     }
 }
