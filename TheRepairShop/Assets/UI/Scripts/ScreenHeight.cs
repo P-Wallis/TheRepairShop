@@ -5,11 +5,14 @@ using UnityEngine;
 public class ScreenHeight : MonoBehaviour
 {
 
+    public RectTransform InOut;
+    float quarterScreenHeight;
     
     void Start()
     {
-        //Script here will determine the height of the window by pixels and position the popup in the lower third or quarter.
+        quarterScreenHeight = Screen.height / 4;
         Debug.Log("Screen Height : " + Screen.height / 4);
+        InOut.offsetMin = new Vector2(0, quarterScreenHeight);
     }
 
     void Update()
