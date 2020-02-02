@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     [Range(0.01f, 0.25f)] public float ticketReductionIncrement = 0.01f;
     [Range(1f, 2f)] public float ticketReductionMultiplier = 1.5f;
+    [Range(1f, 50f)]public float itemSpeed = 10f;
 
     private void Awake()
     {
