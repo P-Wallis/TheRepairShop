@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657683, g: 0.49641126, b: 0.5748175, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -450,15 +450,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17c85694318b234fa3ef294573d6a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsGameRunning: 1
   ticket: {fileID: 2281213227623019068, guid: 7d3d3fc35c5122d4f81f1ee79c7ee5db, type: 3}
   items:
-  - {fileID: 8332843913354016990, guid: 500fbb037804c4413951021ba40793be, type: 3}
-  - {fileID: 9065839520473769238, guid: bda975cb14bf24314960f5f8c3bd9050, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   UICanvas: {fileID: 74970550}
+  LevelData: {fileID: 11400000, guid: 5be31b6af2859b744861a9ea275eac1d, type: 2}
   pendingTickets: []
   completedTickets: []
   ticketReductionIncrement: 0.01
   ticketReductionMultiplier: 1.5
+  itemSpeed: 10
 --- !u!4 &1208611100
 Transform:
   m_ObjectHideFlags: 0
