@@ -6,40 +6,41 @@ using UnityEditor;
 
 public class Ticket : MonoBehaviour
 {
-    Image custPortImgSrc, itemImgSrc;
+    public Image custPortImgSrc, itemImgSrc;
 
     string[] custPortImgGUIDs, itemImgGUIDs;
     List<Sprite> custPortList, itemImgList;
 
+    public Slider sliderSrc;
+    public Image fillSrc;
+    float changePortraitTimer = Mathf.Epsilon;
+
+    [Range(1, 20)] public int timeLimit = 10;
+
     enum CustomerImage { happy, neutral, sad };
-    enum ItemImage { red, green, blue };
+    CustomerImage curCustImg = CustomerImage.happy;
+
+    [HideInInspector] public enum ItemType { red, green, blue };
+    public ItemType itemType;
+
+    //enum ItemImage { red, green, blue };
 
     // Start is called before the first frame update
     void Start()
     {
         InitializeVars();
-
         AssignRandomImage();
-
-        // Experimental code:
-        CustomerImage curCustImg;
-        curCustImg = CustomerImage.happy;
-
-        ItemImage curItemImg;
-        curItemImg = ItemImage.red;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ChangeCustomerPortrait();
+        //DestroyOnFail();
     }
 
     void InitializeVars()
     {
-        custPortImgSrc = gameObject.GetComponentsInChildren<Image>()[1];
-        itemImgSrc = gameObject.GetComponentsInChildren<Image>()[2];
-
         custPortImgGUIDs = AssetDatabase.FindAssets("-CustomerPortrait-", new[] { "Assets/UI/Images" });
         itemImgGUIDs = AssetDatabase.FindAssets("-ItemImage-", new[] { "Assets/UI/Images" });
 
@@ -79,9 +80,51 @@ public class Ticket : MonoBehaviour
     void AssignRandomImage()
     {
         var randInt = Random.Range(0, custPortList.Count);
-        custPortImgSrc.sprite = custPortList[randInt];
+        //custPortImgSrc.sprite = custPortList[randInt];
 
-        randInt = Random.Range(0, itemImgList.Count);
+        //randInt = Random.Range(0, itemImgList.Count);
         itemImgSrc.sprite = itemImgList[randInt];
     }
+
+    void ChangeCustomerPortrait()
+    {
+        changePortraitTimer += Time.deltaTime;
+
+        if (changePortraitTimer >= 0.1f)
+        {
+            changePortraitTimer = Mathf.Epsilon;
+            if (curCustImg == CustomerImage.happy)
+                sliderSrc.value -= timeLimit * 0.001f;
+            else
+                sliderSrc.value -= timeLimit * 0.001f * 1.5f;
+        }
+
+        if (sliderSrc.value >= 0.66)
+            fillSrc.color = Color.green;
+        else if (sliderSrc.value < 0.66 && sliderSrc.value >= 0.33)
+            fillSrc.color = Color.yellow;
+        else
+            fillSrc.color = Color.red;
+
+        if (sliderSrc.value <= 0)
+        {
+            if (curCustImg == CustomerImage.happy)
+            {
+                curCustImg = CustomerImage.neutral;
+                custPortImgSrc.sprite = custPortList.Find(item => item.name.Contains("Neutral"));
+            }
+            else if (curCustImg == CustomerImage.neutral)
+            {
+                curCustImg = CustomerImage.sad;
+                custPortImgSrc.sprite = custPortList.Find(item => item.name.Contains("Sad"));
+            }
+
+            sliderSrc.value = 1;
+        }
+    }
+
+    //void DestroyOnFail()
+    //{
+    //    if (curProgress <= 0) Destroy(gameObject);
+    //}
 }
