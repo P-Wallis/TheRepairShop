@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(movement * (m_speed * Time.deltaTime));
             if (!m_makingSound)
             {
-                AudioPlayer.Instance.PlayAudioLoop("Footsteps", 0);
+                //Muted because annoying AudioPlayer.Instance.PlayAudioLoop("Footsteps", 0);
                 m_makingSound = true;
             }
         }
