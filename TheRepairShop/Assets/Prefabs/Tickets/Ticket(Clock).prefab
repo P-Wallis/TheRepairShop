@@ -193,8 +193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  custPortImgSrc: {fileID: 0}
-  itemImgSrc: {fileID: 0}
+  custPortImgSrc: {fileID: 5793386591633131697}
+  itemImgSrc: {fileID: 8462315670520669482}
   custPortList: []
   itemImgList: []
   sliderSrc: {fileID: 2818140311254871041}

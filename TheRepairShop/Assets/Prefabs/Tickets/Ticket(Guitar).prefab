@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 2498765674390548534}
   - component: {fileID: 4188769388688925971}
   m_Layer: 5
-  m_Name: Ticket(Green)
+  m_Name: Ticket(Guitar)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,8 +193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  custPortImgSrc: {fileID: 0}
-  itemImgSrc: {fileID: 0}
+  custPortImgSrc: {fileID: 2334395604415999710}
+  itemImgSrc: {fileID: 3873827382147051673}
   custPortList: []
   itemImgList: []
   sliderSrc: {fileID: 2818140311254871041}
