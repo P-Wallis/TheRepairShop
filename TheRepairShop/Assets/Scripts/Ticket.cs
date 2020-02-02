@@ -7,12 +7,12 @@ using UnityEditor;
 public class Ticket : MonoBehaviour
 {
     [HideInInspector] public Item item;
-    WorkType type;
+    WorkType workstation;
 
     public Image custPortImgSrc, itemImgSrc;
 
     string[] custPortImgGUIDs, itemImgGUIDs;
-    public List<Sprite> custPortList, itemImgList;
+    List<Sprite> custPortList, itemImgList;
 
     public Slider sliderSrc;
     public Image fillSrc;
@@ -24,7 +24,6 @@ public class Ticket : MonoBehaviour
     CustomerImage curCustImg = CustomerImage.happy;
 
     [HideInInspector] public enum ItemType { red, green, blue };
-    public ItemType itemType;
 
     //enum ItemImage { red, green, blue };
 
@@ -48,7 +47,7 @@ public class Ticket : MonoBehaviour
 
     void InitializeVars()
     {
-        type = item.GetRequiredWork();
+        workstation = item.GetRequiredWork();
 
         custPortImgGUIDs = AssetDatabase.FindAssets("-CustomerPortrait-", new[] { "Assets/UI/Images" });
         itemImgGUIDs = AssetDatabase.FindAssets("-ItemImage-", new[] { "Assets/UI/Images" });
@@ -108,6 +107,9 @@ public class Ticket : MonoBehaviour
 
         if (sliderSrc.value <= 0)
         {
+            if (curCustImg != CustomerImage.sad)
+                sliderSrc.value = 1;
+
             if (curCustImg == CustomerImage.happy)
             {
                 curCustImg = CustomerImage.neutral;
@@ -118,19 +120,27 @@ public class Ticket : MonoBehaviour
                 curCustImg = CustomerImage.sad;
                 custPortImgSrc.sprite = custPortList.Find(item => item.name.Contains("Sad"));
             }
-
-            sliderSrc.value = 1;
         }
     }
 
     void AssignTicketTypeImage()
     {
-        if (type == WorkType.CARPENTER)
+        if (workstation == WorkType.CARPENTER)
         {
             print("this is for carpenter");
         }
+        else if (workstation == WorkType.MECHANIC)
+        {
+            print("this is for mechanic");
+        }
+        else if (workstation == WorkType.PAINTER)
+        {
+            print("this is for painter");
+        }
         else
-            print("this is not for carpenter");
+        {
+            print("this is done");
+        }
     }
 
     //void AssignRandomImage()
