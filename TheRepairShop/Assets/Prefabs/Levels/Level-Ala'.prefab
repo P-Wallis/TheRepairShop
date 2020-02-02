@@ -1397,6 +1397,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Workbench (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ac91b1a9cd7b6448b63535c2669a971,
+        type: 3}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d69762782df4d339f7089ae19eeb63, type: 3}
 --- !u!1 &2320429890790379724 stripped
@@ -1589,6 +1610,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Workbench
       objectReference: {fileID: 0}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1037cc838c6eb9c4fb39a135905d544e,
+        type: 3}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d69762782df4d339f7089ae19eeb63, type: 3}
 --- !u!1 &1116539104574539219 stripped
@@ -1754,6 +1796,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Workbench (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3055e9a6f22bf4840816786772595837,
+        type: 3}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691438871662071607, guid: f8d69762782df4d339f7089ae19eeb63,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d69762782df4d339f7089ae19eeb63, type: 3}
