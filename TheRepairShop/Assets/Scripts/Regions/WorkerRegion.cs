@@ -20,6 +20,11 @@ public class WorkerRegion : RegionBase
 
     public Transform progressBar;
 
+    void Start()
+    {
+        progressBar.localScale = new Vector3(0, 0.2f, 1f);
+    }
+
     public override Item ItemInteraction(Item playerItem)
     {
         if (m_item == null && playerItem != null && playerItem.GetRequiredWork() == m_type)
