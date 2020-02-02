@@ -47,13 +47,36 @@ public class AudioPlayer : MonoBehaviour
         player.PlayOneShot(clips.Find((x) => x.name == clipName));
         
     }
+
+    /// <summary>
+    /// Volume is between 0 and 1.
+    /// </summary>
+    /// <param name="clipName"></param>
+    /// <param name="volume"></param>
+    public void PlayAudioOnce(string clipName, float volume)
+    {
+        player.PlayOneShot(clips.Find((x) => x.name == clipName), volume);
+
+    }
     /// <summary>
     /// Play the clip until StopAudioLoop() called. Clip Player ID is returned, which is required to stop playing this clip.
     /// </summary>
     /// <param name="clipName"></param>
     public int PlayAudioLoop(string clipName) {
+        return PlayAudioLoop(clipName, 1f);
+    }
+
+    /// <summary>
+    /// Volume is between 0 and 1.
+    /// </summary>
+    /// <param name="clipName"></param>
+    /// <param name="volume"></param>
+    /// <returns></returns>
+    public int PlayAudioLoop(string clipName, float volume)
+    {
         var source = gameObject.AddComponent<AudioSource>();
         source.loop = true;
+        source.volume = volume;
         source.clip = clips.Find((x) => x.name == clipName);
         source.Play();
         loopPlayers.Add(source);
