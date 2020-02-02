@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
     public string m_name;
     [SerializeField] private WorkType m_workRequired;
     [HideInInspector] public Ticket ticket;
+    AnimationCurve m_smoothCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
 
     public WorkType GetRequiredWork()
     {
@@ -34,7 +35,7 @@ public class Item : MonoBehaviour
         float percent = 0;
         while (percent < 1)
         {
-            transform.localPosition = Vector3.Lerp(startPosition, targetPosition, percent);
+            transform.localPosition = Vector3.Lerp(startPosition, targetPosition, m_smoothCurve.Evaluate(percent));
             percent += dt * Time.deltaTime;
             yield return null;
         }
