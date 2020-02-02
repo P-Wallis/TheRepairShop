@@ -88,6 +88,11 @@ public class AudioPlayer : MonoBehaviour
         StartCoroutine(FadeOut(source, 0.5f));
         loopPlayers.Remove(source);
     }
+
+    /// <summary>
+    /// Please note that if more than two instances of the same clip is played simultaneously, this method stops all of them. If you do not want this, use StopAudioLoop(int).
+    /// </summary>
+    /// <param name="clipName"></param>
     public void StopAudioLoop(string clipName) {
         foreach (var x in loopPlayers.FindAll((x) => x.clip.name == clipName)) {
             StartCoroutine(FadeOut(x, 0.5f));
