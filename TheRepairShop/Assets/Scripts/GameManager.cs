@@ -122,6 +122,20 @@ public class GameManager : MonoBehaviour
         completedTicket.Complete();
         pendingTickets.Remove(completedTicket);
         completedTickets.Add(completedTicket);
+
+        switch (completedTicket.curCustImg)
+        {
+            case Ticket.CustomerImage.happy:
+                UpdateReputationWithNewReview(5);
+                break;
+            case Ticket.CustomerImage.neutral:
+                UpdateReputationWithNewReview(3);
+                break;
+            case Ticket.CustomerImage.sad:
+                UpdateReputationWithNewReview(1);
+                break;
+        }
+
         TotalSuccess++;
     }
     public void LevelEnd() {
