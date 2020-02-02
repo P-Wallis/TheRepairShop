@@ -5,6 +5,8 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     float levelTimer;
     float waitTimer;
     public GameObject ticket;
@@ -15,9 +17,12 @@ public class GameManager : MonoBehaviour
     List<GameObject> ticketList;
 
     public static float ticketReductionIncrement = 0.01f;
+    [Range(1,10)]public float multiplier = 1.5f;
 
-    void Start()
+    private void Awake()
     {
+        instance = this;
+
         levelTimer = 180;
         waitTimer = 0;
 
