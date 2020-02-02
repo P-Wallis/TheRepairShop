@@ -67,6 +67,11 @@ public class GameManager : MonoBehaviour
             LevelEnd();
 
         }
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            ExitGame();
+        }
     }
 
     public void UpdateReputationWithNewReview(float reviewScore)
@@ -150,5 +155,10 @@ public class GameManager : MonoBehaviour
     public void GameEnd()
     { 
     
+    }
+
+    void ExitGame()
+    {
+        Application.Quit();
     }
 }
