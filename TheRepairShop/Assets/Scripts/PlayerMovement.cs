@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!GameManager.instance.IsGameRunning)
+            return;
         Vector3 movement = new Vector3(Input.GetAxis(c_horizontalAxis), 0, Input.GetAxis(c_verticalAxis));
         bool isMoving = false;
 
