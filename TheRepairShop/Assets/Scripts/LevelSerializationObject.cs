@@ -42,7 +42,6 @@ using System.Linq;
     struct ItemDifficultyData {
         public string ItemName;
         public float Probability;
-        public float TimeGiven;
     
     }
 

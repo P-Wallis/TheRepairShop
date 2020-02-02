@@ -106,7 +106,6 @@ public class GameManager : MonoBehaviour
             
 
             Ticket ticketScript = ticketGameObject.GetComponent<Ticket>();
-            ticketScript.timeLimit = itemDifficultyData.TimeGiven;
             ticketScript.item = itemGameObject.GetComponent<Item>();
             ticketScript.item.ticket = ticketScript;
             pendingTickets.Add(ticketScript);
