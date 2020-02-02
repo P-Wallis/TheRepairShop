@@ -17,6 +17,8 @@ public class Ticket : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioPlayer.Instance.PlayAudioOnce("Bell1");
+
         InitializeVars();
 
         AssignRandomImage();
