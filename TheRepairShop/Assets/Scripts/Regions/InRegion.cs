@@ -14,11 +14,11 @@ public class InRegion : RegionBase
         instance = this;
     }
 
-    public void AddItemToQueue(GameObject itemGameObject)
+    public void AddItemToQueue(Item item)
     {
-        Item item = itemGameObject.GetComponent<Item>();
         m_itemQueue.Enqueue(item);
         item.transform.position = transform.position + Vector3.up;
+        item.transform.localRotation = Quaternion.Euler(0, Random.Range(-180f,180f), 0);
     }
 
 
