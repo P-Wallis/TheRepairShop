@@ -46,8 +46,7 @@ public class WorkerRegion : RegionBase
         progressBar.localScale = new Vector3(1f, 0.2f, 1f);
 
         m_working = true;
-        m_item.transform.parent = transform;
-        m_item.transform.localPosition = Vector3.zero;
+        m_item.MoveToPosition(transform, Vector3.zero);
         Debug.Log("Working...");
 
         float t = 0f;
@@ -59,8 +58,7 @@ public class WorkerRegion : RegionBase
             yield return null;
         };
 
-        //yield return new WaitForSeconds(m_worktime);
-        m_item.transform.localPosition = Vector3.up;
+        m_item.MoveToPosition(transform, Vector3.up);
         m_item.WorkDone();
         Debug.Log("Done!");
         m_working = false;

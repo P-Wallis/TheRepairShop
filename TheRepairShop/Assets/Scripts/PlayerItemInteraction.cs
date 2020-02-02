@@ -34,10 +34,11 @@ public class PlayerItemInteraction : MonoBehaviour
             if (m_heldItem != null)
             {
                 Debug.Log("The player is now holding '" + m_heldItem.m_name + "'!");
-                if(oldItem!=m_heldItem)
+                if (oldItem != m_heldItem)
+                {
                     AudioPlayer.Instance.PlayAudioOnce("ItemPickup");
-                m_heldItem.transform.parent = transform;
-                m_heldItem.transform.localPosition = Vector3.up * 2.5f;
+                    m_heldItem.MoveToPosition(transform, Vector3.up * 2.5f);
+                }
             }
             else
             {
@@ -45,4 +46,5 @@ public class PlayerItemInteraction : MonoBehaviour
             }
         }
     }
+
 }
