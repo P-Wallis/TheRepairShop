@@ -29,10 +29,13 @@ public class PlayerItemInteraction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && m_currentRegion != null)
         {
+            Item oldItem = m_heldItem;
             m_heldItem = m_currentRegion.ItemInteraction(m_heldItem);
             if (m_heldItem != null)
             {
                 Debug.Log("The player is now holding '" + m_heldItem.m_name + "'!");
+                if(oldItem!=m_heldItem)
+                    AudioPlayer.Instance.PlayAudioOnce("ItemPickup");
                 m_heldItem.transform.parent = transform;
                 m_heldItem.transform.localPosition = Vector3.up * 2.5f;
             }
