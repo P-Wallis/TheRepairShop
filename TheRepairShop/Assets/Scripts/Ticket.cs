@@ -92,6 +92,8 @@ public class Ticket : MonoBehaviour
 
     void ChangeCustomerPortrait()
     {
+        if (!GameManager.instance.IsGameRunning)
+            return;
         changePortraitTimer += Time.deltaTime;
 
         if (changePortraitTimer >= GameManager.instance.ticketReductionIncrement)
@@ -150,12 +152,14 @@ public class Ticket : MonoBehaviour
 
     void AssignTicketTypeImage()
     {
+        /* This does not do anything now because there is only one ticket.
         if (type == WorkType.CARPENTER)
         {
             print("this is for carpenter");
         }
         else
             print("this is not for carpenter");
+            */
     }
 
     public void Complete() { 

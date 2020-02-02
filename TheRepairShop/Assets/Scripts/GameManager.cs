@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     int CurrentLevel = 0;
     int TotalReceivedItems = 0;
     int TotalSuccess = 0;
-    float levelTimer;
+    public float levelLength => LevelData.Levels[CurrentLevel].LevelLengthSeconds;
+    public float levelTimer;
     float waitTimer;
     public bool IsGameRunning = true;
     public GameObject ticket;
@@ -49,12 +50,10 @@ public class GameManager : MonoBehaviour
                 )
             );
         }
-
-        AddAnotherTicket();
     }
     private void Start()
     {
-
+        AddAnotherTicket();
         AudioPlayer.Instance.PlayAudioOnce("GameStart");
         AudioPlayer.Instance.PlayAudioLoop("BackgroundMusic1");
     }
@@ -138,11 +137,19 @@ public class GameManager : MonoBehaviour
 
         TotalSuccess++;
     }
+
+    /// <summary>
+    /// Called when the level ends
+    /// </summary>
     public void LevelEnd() {
         IsGameRunning = false;
         LevelResultPanel.Instance.LevelEnd(TotalReceivedItems, TotalSuccess);
 
     }
+
+    /// <summary>
+    /// Currently not called. Called when the next level starts
+    /// </summary>
     public void NextLevel() {
         if (CurrentLevel + 1 < LevelData.Levels.Count) CurrentLevel++;
         else GameEnd();

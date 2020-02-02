@@ -94,9 +94,10 @@ public class AudioPlayer : MonoBehaviour
     /// </summary>
     /// <param name="clipName"></param>
     public void StopAudioLoop(string clipName) {
-        foreach (var x in loopPlayers.FindAll((x) => x.clip.name == clipName)) {
+        foreach (var x in loopPlayers.FindAll((x) => x.clip!=null&&x.clip.name == clipName)) {
             StartCoroutine(FadeOut(x, 0.5f));
             loopPlayers.Remove(x);
+            
         }
     }
     private IEnumerator FadeOut(AudioSource source, float FadeTime) {
@@ -109,6 +110,7 @@ public class AudioPlayer : MonoBehaviour
             yield return null;
         }
         source.Stop();
+        Destroy(source);
     }
 
 }
