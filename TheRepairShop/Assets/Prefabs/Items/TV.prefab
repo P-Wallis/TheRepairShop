@@ -39,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6886322196447762736}
-  m_Mesh: {fileID: -6774180357025864948, guid: 2936b92881db24f1693acb61f0012e7e, type: 3}
+  m_Mesh: {fileID: -6774180357025864948, guid: dea0f44e6c131324ba49951e25709e59, type: 3}
 --- !u!23 &5508685795932003211
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: TV
   m_workRequired: 1
+  ticket: {fileID: 0}
