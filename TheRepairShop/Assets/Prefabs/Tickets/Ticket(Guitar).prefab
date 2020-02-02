@@ -199,7 +199,7 @@ MonoBehaviour:
   itemImgList: []
   sliderSrc: {fileID: 2818140311254871041}
   fillSrc: {fileID: 5693406371097702543}
-  timeLimit: 10
+  timeLimit: 20
   curCustImg: 0
   itemType: 1
 --- !u!1 &2952338778446818272

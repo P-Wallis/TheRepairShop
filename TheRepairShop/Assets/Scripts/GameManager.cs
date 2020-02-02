@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         if(IsGameRunning)
         levelTimer -= Time.deltaTime;
-
+        Debug.Log(waitTimer);
         if(waitTimer > 0)
         {
             waitTimer -= Time.deltaTime;
