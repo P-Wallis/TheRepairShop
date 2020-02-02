@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: dea0f44e6c131324ba49951e25709e59
-=======
-guid: 2936b92881db24f1693acb61f0012e7e
->>>>>>> 3232d953ae08ae99b6d433b382e9fd7033d86103
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #25
+    second: {fileID: 2100000, guid: 45d29a6ab66544e3fb83bedf6f7ee385, type: 2}
   materials:
-<<<<<<< HEAD
-    materialImportMode: 1
-=======
     materialImportMode: 0
->>>>>>> 3232d953ae08ae99b6d433b382e9fd7033d86103
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -39,26 +36,18 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
-<<<<<<< HEAD
-    sortHierarchyByName: 1
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
-=======
     sortHierarchyByName: 0
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
     importLights: 0
->>>>>>> 3232d953ae08ae99b6d433b382e9fd7033d86103
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -69,30 +58,22 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     meshOptimizationFlags: -1
-    indexFormat: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-<<<<<<< HEAD
-    useFileScale: 1
-=======
     useFileScale: 0
->>>>>>> 3232d953ae08ae99b6d433b382e9fd7033d86103
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
-    normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-<<<<<<< HEAD
-  importAnimation: 1
-=======
   importAnimation: 0
->>>>>>> 3232d953ae08ae99b6d433b382e9fd7033d86103
   humanDescription:
     serializedVersion: 3
     human: []
@@ -111,11 +92,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-<<<<<<< HEAD
-  animationType: 2
-=======
   animationType: 0
->>>>>>> 3232d953ae08ae99b6d433b382e9fd7033d86103
   humanoidOversampling: 1
   avatarSetup: 0
   additionalBone: 0

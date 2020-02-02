@@ -18,6 +18,7 @@ public class InRegion : RegionBase
     {
         m_itemQueue.Enqueue(item);
         item.transform.position = transform.position + Vector3.up;
+        item.transform.localRotation = Quaternion.Euler(0, Random.Range(-180f,180f), 0);
     }
 
 
