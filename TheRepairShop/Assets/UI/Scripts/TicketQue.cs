@@ -8,9 +8,11 @@ public class TicketQue : MonoBehaviour
     Vector3 currentPos;
     Vector3 targetPos;
     float speed;
+    float windowWidth;
 
     void Start()
-    { 
+    {
+        windowWidth = (Screen.width / 6);
         currentPos = this.transform.position;
         targetPos = currentPos;
         SlideTicket();
@@ -29,7 +31,7 @@ public class TicketQue : MonoBehaviour
     {
         
         currentPos = transform.position;
-        targetPos.x = currentPos.x - 270;
+        targetPos.x = currentPos.x - windowWidth;
         speed = 3;
         StartCoroutine(TicketSlider());
         //this.transform.Translate(targetPos.x, currentPos.y, currentPos.z);
