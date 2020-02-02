@@ -1515,6 +1515,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2354456853694634522}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &3379159262119063573 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1029522742071798287, guid: cf7d0776a1f795d45b8e0f6938062cea,
+    type: 3}
+  m_PrefabInstance: {fileID: 2354456853694634522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2397615523211891326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1803,6 +1809,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3729320475157056040}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &7711833525814535571 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6396477670138081211, guid: b47dcf7e1bfd4ee47a558515f75e590c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3729320475157056040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5648372979408875310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2001,6 +2013,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarpenterRegion
       objectReference: {fileID: 0}
+    - target: {fileID: 1122295670917351768, guid: 26e32433a762845b487c5f8b5de6c8db,
+        type: 3}
+      propertyPath: m_animator
+      value: 
+      objectReference: {fileID: 3379159262119063573}
     - target: {fileID: 5784242575013164155, guid: 26e32433a762845b487c5f8b5de6c8db,
         type: 3}
       propertyPath: m_Enabled
@@ -2126,6 +2143,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MechanicRegion
       objectReference: {fileID: 0}
+    - target: {fileID: 970900542948457732, guid: 9e1fb87bc179c41ed81a0dae45598ad3,
+        type: 3}
+      propertyPath: m_animator
+      value: 
+      objectReference: {fileID: 1235016500006793879}
     - target: {fileID: 5958162152417673255, guid: 9e1fb87bc179c41ed81a0dae45598ad3,
         type: 3}
       propertyPath: m_Enabled
@@ -2288,6 +2310,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b2d620a72041044bb3ce7ef7b31084, type: 3}
+--- !u!95 &1235016500006793879 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5704234884166294245, guid: e1b2d620a72041044bb3ce7ef7b31084,
+    type: 3}
+  m_PrefabInstance: {fileID: 6776276492121352306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2844288346454245509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8751297541108754679, guid: e1b2d620a72041044bb3ce7ef7b31084,
@@ -2381,6 +2409,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PainterRegion
       objectReference: {fileID: 0}
+    - target: {fileID: 8660569401195427901, guid: 551aa8906583740b3958493a804f8ec6,
+        type: 3}
+      propertyPath: m_animator
+      value: 
+      objectReference: {fileID: 7711833525814535571}
     - target: {fileID: 8675404184030866175, guid: 551aa8906583740b3958493a804f8ec6,
         type: 3}
       propertyPath: m_LocalScale.x

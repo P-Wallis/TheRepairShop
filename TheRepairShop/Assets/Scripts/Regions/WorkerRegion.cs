@@ -19,6 +19,7 @@ public class WorkerRegion : RegionBase
     private bool m_working = false;
 
     public Transform progressBar;
+    public Animator m_animator;
 
     void Start()
     {
@@ -54,7 +55,8 @@ public class WorkerRegion : RegionBase
         int AudioID = 0;
         m_working = true;
         m_item.MoveToPosition(transform, Vector3.zero);
-        Debug.Log("Working...  Type: "+m_type.ToString());
+        if(m_animator!=null)
+            m_animator.SetBool("Working", true);
         switch (m_type)
         {
             case WorkType.NONE:
@@ -84,7 +86,8 @@ public class WorkerRegion : RegionBase
         if(AudioID!=0)
         AudioPlayer.Instance.StopAudioLoop(AudioID);
         AudioPlayer.Instance.PlayAudioOnce("Alert");
-        Debug.Log("Done!");
+        if (m_animator != null)
+            m_animator.SetBool("Working", false);
         m_working = false;
     }
 }
