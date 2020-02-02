@@ -7,7 +7,6 @@ public class TicketQue : MonoBehaviour
 
     Vector3 currentPos;
     Vector3 targetPos;
-    float speed;
     float windowWidth;
 
     void Start()
@@ -18,23 +17,12 @@ public class TicketQue : MonoBehaviour
         SlideTicket();
     }
 
-    private void Update()
-    {
-        //if (currentPos.x > targetPos.x)
-        //{
-        //    this.transform.position = Vector3.Lerp(currentPos, targetPos, speed * Time.deltaTime);
-        //}
-            
-    }
-
     public void SlideTicket()
     {
         
         currentPos = transform.position;
         targetPos.x = currentPos.x - windowWidth;
-        speed = 3;
         StartCoroutine(TicketSlider());
-        //this.transform.Translate(targetPos.x, currentPos.y, currentPos.z);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

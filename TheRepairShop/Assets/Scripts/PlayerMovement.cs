@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!GameManager.instance.IsGameRunning)
+            return;
         Vector3 movement = new Vector3(Input.GetAxis(c_horizontalAxis), 0, Input.GetAxis(c_verticalAxis));
         bool isMoving = false;
 
@@ -49,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(movement * (m_speed * Time.deltaTime));
             if (!m_makingSound)
             {
-                AudioPlayer.Instance.PlayAudioLoop("Footsteps");
+                AudioPlayer.Instance.PlayAudioLoop("Footsteps", 0);
                 m_makingSound = true;
             }
         }
