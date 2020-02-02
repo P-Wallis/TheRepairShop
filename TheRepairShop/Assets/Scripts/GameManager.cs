@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    int CurrentLevel = 0;
     float levelTimer;
     float waitTimer;
     public GameObject ticket;
-    public GameObject[] items;
+    public List<Item> items;
     public Transform UICanvas;
-
+    [SerializeField] LevelSerializationObject LevelData;
     List<GameObject> ticketList;
     [HideInInspector] public List<Ticket> pendingTickets = new List<Ticket>();
     [HideInInspector] public List<Ticket> completedTickets = new List<Ticket>();
@@ -42,7 +43,10 @@ public class GameManager : MonoBehaviour
 
         AddAnotherTicket();
     }
-
+    private void Start()
+    {
+        AudioPlayer.Instance.PlayAudioLoop("BackgroundMusic1");
+    }
     void Update()
     {
         levelTimer -= Time.deltaTime;
@@ -65,22 +69,35 @@ public class GameManager : MonoBehaviour
             ticket = ticketList[randInt];
 
             GameObject ticketGameObject = Instantiate(ticket, UICanvas);
-            GameObject itemGameObject = Instantiate(items[Random.Range(0,items.Length)]);
+
+            //We Choose Item to instantiate according to LevelData.
+            var itemDifficultyData = LevelData.Levels[CurrentLevel].ChooseOneItem();
+            GameObject itemGameObject = Instantiate(items.Find((x)=>x.m_name == itemDifficultyData.ItemName)).gameObject;
 
             Ticket ticketScript = ticketGameObject.GetComponent<Ticket>();
+            ticketScript.timeLimit = itemDifficultyData.TimeGiven;
             ticketScript.item = itemGameObject.GetComponent<Item>();
             ticketScript.item.ticket = ticketScript;
             pendingTickets.Add(ticketScript);
 
             InRegion.instance.AddItemToQueue(ticketScript.item);
-            waitTimer = 3;
+            waitTimer = LevelData.Levels[CurrentLevel].ItemIncomeTermSeconds;
         }
     }
 
     public void TicketComplete(Ticket completedTicket)
     {
         completedTicket.gameObject.SetActive(false);
+        completedTicket.Complete();
         pendingTickets.Remove(completedTicket);
         completedTickets.Add(completedTicket);
+    }
+    public void NextLevel() {
+        if (CurrentLevel + 1 < LevelData.Levels.Count) CurrentLevel++;
+        else GameEnd();
+    }
+
+    public void GameEnd() { 
+    
     }
 }
