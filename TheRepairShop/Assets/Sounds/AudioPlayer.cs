@@ -100,6 +100,15 @@ public class AudioPlayer : MonoBehaviour
             
         }
     }
+
+    public void StopAudioAll() {
+
+        foreach (var x in loopPlayers) {
+            StartCoroutine(FadeOut(x, 0.5f));
+            loopPlayers.Remove(x);
+
+        }
+    }
     private IEnumerator FadeOut(AudioSource source, float FadeTime) {
 
         float startVolume = source.volume;
