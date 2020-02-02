@@ -16,12 +16,14 @@ MonoBehaviour:
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
-    - ItemName: TV
+    - ItemName: Radio
       Probability: 0.25
     - ItemName: Guitar
       Probability: 0.25
     - ItemName: Clock
-      Probability: 0.5
+      Probability: 0.25
+    - ItemName: TV
+      Probability: 0.25
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
