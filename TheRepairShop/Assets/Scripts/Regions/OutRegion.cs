@@ -13,6 +13,7 @@ public class OutRegion : RegionBase
             m_items.Add(playerItem);
             playerItem.transform.parent = transform;
             playerItem.transform.localPosition = Vector3.up * (m_items.Count);
+            GameManager.instance.TicketComplete(playerItem.ticket);
             return null;
         }
 
