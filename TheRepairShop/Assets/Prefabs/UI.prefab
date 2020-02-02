@@ -165,7 +165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6978772611709441878
 RectTransform:
   m_ObjectHideFlags: 0
@@ -290,7 +290,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ticket: {fileID: 2281213227623019068, guid: 7d3d3fc35c5122d4f81f1ee79c7ee5db, type: 3}
   item: {fileID: 8332843913354016990, guid: 500fbb037804c4413951021ba40793be, type: 3}
-  m_items: []
 --- !u!1 &6151108933093412505
 GameObject:
   m_ObjectHideFlags: 0
