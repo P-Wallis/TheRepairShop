@@ -13,8 +13,9 @@ public class GameManager : MonoBehaviour
     public GameObject item;
     public Transform UICanvas;
 
-    string[] ticketPrefabGUIDs;
     List<GameObject> ticketList;
+    [HideInInspector] public List<Ticket> pendingTickets = new List<Ticket>();
+    [HideInInspector] public List<Ticket> completedTickets = new List<Ticket>();
 
     [Range(0.01f, 0.25f)] public float ticketReductionIncrement = 0.01f;
     [Range(1f, 2f)] public float ticketReductionMultiplier = 1.5f;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         levelTimer = 180;
         waitTimer = 0;
 
-        ticketPrefabGUIDs = AssetDatabase.FindAssets("Ticket(");
+        string[] ticketPrefabGUIDs = AssetDatabase.FindAssets("Ticket(");
         ticketList = new List<GameObject>();
 
         foreach (string guid in ticketPrefabGUIDs)
@@ -52,23 +53,33 @@ public class GameManager : MonoBehaviour
         {
             AddAnotherTicket();
         }
-        //Debug.Log(levelTimer);
-        //Debug.Log(waitTimer);
     }
 
     public void AddAnotherTicket()
     {
-        var randInt = Random.Range(0, ticketList.Count);
+        if (pendingTickets.Count < 6 && completedTickets.Count<18)
+        {
+            var randInt = Random.Range(0, ticketList.Count);
 
-        ticket = ticketList[randInt];
-        
-        GameObject ticketGameObject = Instantiate(ticket, UICanvas);
-        GameObject itemGameObject = Instantiate(item) as GameObject;
+            ticket = ticketList[randInt];
 
-        Ticket ticketScript = ticketGameObject.GetComponent<Ticket>();
-        ticketScript.item = itemGameObject.GetComponent<Item>();
+            GameObject ticketGameObject = Instantiate(ticket, UICanvas);
+            GameObject itemGameObject = Instantiate(item) as GameObject;
 
-        InRegion.instance.AddItemToQueue(itemGameObject);
-        waitTimer = 3;
+            Ticket ticketScript = ticketGameObject.GetComponent<Ticket>();
+            ticketScript.item = itemGameObject.GetComponent<Item>();
+            ticketScript.item.ticket = ticketScript;
+            pendingTickets.Add(ticketScript);
+
+            InRegion.instance.AddItemToQueue(ticketScript.item);
+            waitTimer = 3;
+        }
+    }
+
+    public void TicketComplete(Ticket completedTicket)
+    {
+        completedTicket.gameObject.SetActive(false);
+        pendingTickets.Remove(completedTicket);
+        completedTickets.Add(completedTicket);
     }
 }

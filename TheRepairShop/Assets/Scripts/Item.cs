@@ -6,6 +6,7 @@ public class Item : MonoBehaviour
 {
     public string m_name;
     [SerializeField] private WorkType m_workRequired;
+    [HideInInspector] public Ticket ticket;
 
     public WorkType GetRequiredWork()
     {
