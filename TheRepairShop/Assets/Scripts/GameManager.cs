@@ -102,8 +102,9 @@ public class GameManager : MonoBehaviour
 
             InRegion.instance.AddItemToQueue(ticketScript.item);
             waitTimer = LevelData.Levels[CurrentLevel].ItemIncomeTermSeconds;
+            TotalReceivedItems++;
         }
-        TotalReceivedItems++;
+        
     }
 
     public void TicketComplete(Ticket completedTicket)

@@ -41,6 +41,7 @@ public class LevelResultPanel : MonoBehaviour
     public void OnNextLevelButton() 
     
     {
+        AudioPlayer.Instance.StopAudioAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         //There is no such a thing as the next level
         //OnNextLevel?.Invoke();
@@ -50,7 +51,7 @@ public class LevelResultPanel : MonoBehaviour
     public void OnReplayButton()
 
     {
-
+        AudioPlayer.Instance.StopAudioAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
