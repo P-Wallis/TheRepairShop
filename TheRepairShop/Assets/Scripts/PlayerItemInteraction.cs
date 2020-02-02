@@ -44,6 +44,8 @@ public class PlayerItemInteraction : MonoBehaviour
             {
                 Debug.Log("The player is not holding anything.");
             }
+            if (oldItem != null && m_heldItem == null)
+                AudioPlayer.Instance.PlayAudioOnce("ItemPutdown");
         }
     }
 

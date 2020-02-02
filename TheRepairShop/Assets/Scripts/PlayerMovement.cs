@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator m_animator;
     public float m_turnSpeed = 10f;
     private bool m_wasWalking = false;
+    bool m_makingSound = false;
 
     private void Start()
     {
@@ -46,6 +47,17 @@ public class PlayerMovement : MonoBehaviour
         if (isMoving)
         {
             transform.Translate(movement * (m_speed * Time.deltaTime));
+            if (!m_makingSound)
+            {
+                AudioPlayer.Instance.PlayAudioLoop("Footsteps");
+                m_makingSound = true;
+            }
+        }
+        else
+            if (m_makingSound)
+        {
+            AudioPlayer.Instance.StopAudioLoop("Footsteps");
+            m_makingSound = false;
         }
     }
 }

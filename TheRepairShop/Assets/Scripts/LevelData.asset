@@ -18,38 +18,46 @@ MonoBehaviour:
     ItemDistribution:
     - ItemName: TV
       Probability: 1
+      TimeGiven: 8
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
+      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
+      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
+      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
+      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
+      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
+      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
+      TimeGiven: 1

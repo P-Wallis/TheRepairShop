@@ -18,7 +18,10 @@ public class Ticket : MonoBehaviour
     public Image fillSrc;
     float changePortraitTimer = Mathf.Epsilon;
 
-    [Range(1, 20)] public int timeLimit = 10;
+    /// <summary>
+    /// We should decide how to determine this value; via Ticket or ItemDifficultyData
+    /// </summary>
+    [Range(1, 20)] public float timeLimit = 10;
 
     enum CustomerImage { happy, neutral, sad };
     CustomerImage curCustImg = CustomerImage.happy;
@@ -119,6 +122,7 @@ public class Ticket : MonoBehaviour
                 custPortImgSrc.sprite = custPortList.Find(item => item.name.Contains("Sad"));
             }
 
+            if(curCustImg != CustomerImage.sad)
             sliderSrc.value = 1;
         }
     }
@@ -131,6 +135,13 @@ public class Ticket : MonoBehaviour
         }
         else
             print("this is not for carpenter");
+    }
+
+    public void Complete() { 
+    if(curCustImg!=CustomerImage.sad)
+            AudioPlayer.Instance.PlayAudioOnce("ScoreGain");
+    else
+            AudioPlayer.Instance.PlayAudioOnce("ScoreLose");
     }
 
     //void AssignRandomImage()

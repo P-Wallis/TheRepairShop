@@ -43,7 +43,10 @@ public class GameManager : MonoBehaviour
 
         AddAnotherTicket();
     }
-
+    private void Start()
+    {
+        AudioPlayer.Instance.PlayAudioLoop("BackgroundMusic1");
+    }
     void Update()
     {
         levelTimer -= Time.deltaTime;
@@ -68,9 +71,11 @@ public class GameManager : MonoBehaviour
             GameObject ticketGameObject = Instantiate(ticket, UICanvas);
 
             //We Choose Item to instantiate according to LevelData.
-            GameObject itemGameObject = Instantiate(items.Find((x)=>x.m_name == LevelData.Levels[CurrentLevel].ChooseOneItem())).gameObject;
+            var itemDifficultyData = LevelData.Levels[CurrentLevel].ChooseOneItem();
+            GameObject itemGameObject = Instantiate(items.Find((x)=>x.m_name == itemDifficultyData.ItemName)).gameObject;
 
             Ticket ticketScript = ticketGameObject.GetComponent<Ticket>();
+            ticketScript.timeLimit = itemDifficultyData.TimeGiven;
             ticketScript.item = itemGameObject.GetComponent<Item>();
             ticketScript.item.ticket = ticketScript;
             pendingTickets.Add(ticketScript);
@@ -83,6 +88,7 @@ public class GameManager : MonoBehaviour
     public void TicketComplete(Ticket completedTicket)
     {
         completedTicket.gameObject.SetActive(false);
+        completedTicket.Complete();
         pendingTickets.Remove(completedTicket);
         completedTickets.Add(completedTicket);
     }
