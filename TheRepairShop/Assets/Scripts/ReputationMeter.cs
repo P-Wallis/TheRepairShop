@@ -24,8 +24,16 @@ public class ReputationMeter : MonoBehaviour
         Debug.Log("Rep: " + m_currentRep);
     }
 
+    void UpdateReputationFromGameManager()
+    {
+        SetMeter(GameManager.instance.Reputation);
+    }
+
     private void Start()
     {
-        SetMeter(Random.Range(0f, 5f));
+        SetMeter(GameManager.instance.Reputation);
+        GameManager.instance.OnReputationUpdate += UpdateReputationFromGameManager;
     }
+
+
 }
