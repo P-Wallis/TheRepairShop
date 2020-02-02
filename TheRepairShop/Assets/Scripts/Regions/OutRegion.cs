@@ -16,7 +16,7 @@ public class OutRegion : RegionBase
         if (playerItem != null && playerItem.GetRequiredWork() == WorkType.NONE)
         {
             m_items.Add(playerItem);
-            playerItem.MoveToPosition(transform, Vector3.left * (m_items.Count-2));
+            playerItem.MoveToPosition(transform, Vector3.left * ((m_items.Count-2)*2));
             GameManager.instance.TicketComplete(playerItem.ticket);
             return null;
         }
@@ -38,7 +38,7 @@ public class OutRegion : RegionBase
 
                 for (int i = 0; i < m_items.Count; i++)
                 {
-                    m_items[i].MoveToPosition(transform, Vector3.left * (i - 1));
+                    m_items[i].MoveToPosition(transform, Vector3.left * ((i - 1)*2));
                 }
 
                 removed.MoveToPosition(transform, removed.transform.localPosition + (Vector3.back * 30));
