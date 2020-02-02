@@ -13,51 +13,47 @@ MonoBehaviour:
   m_Name: LevelData
   m_EditorClassIdentifier: 
   Levels:
-  - LevelLengthSeconds: 20
+  - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
-      Probability: 1
-      TimeGiven: 8
+      Probability: 0.25
+    - ItemName: Guitar
+      Probability: 0.25
+    - ItemName: Clock
+      Probability: 0.5
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
-      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
-      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
-      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
-      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
-      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
-      TimeGiven: 1
   - LevelLengthSeconds: 180
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
-      TimeGiven: 1

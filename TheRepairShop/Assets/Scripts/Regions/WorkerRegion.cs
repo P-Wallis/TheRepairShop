@@ -33,14 +33,16 @@ public class WorkerRegion : RegionBase
             StartCoroutine(Work());
             return null;
         }
-
         else if (m_item != null && !m_working)
         {
-            Item doneItem = m_item;
-            m_item = (playerItem !=null && playerItem.GetRequiredWork() == m_type) ? playerItem : null;
-            if (m_item != null)
-                StartCoroutine(Work());
-            return doneItem;
+            if ((playerItem != null && playerItem.GetRequiredWork() == m_type) || playerItem == null)
+            {
+                Item doneItem = m_item;
+                m_item = playerItem;
+                if (m_item != null)
+                    StartCoroutine(Work());
+                return doneItem;
+            }
         }
 
         return playerItem;
