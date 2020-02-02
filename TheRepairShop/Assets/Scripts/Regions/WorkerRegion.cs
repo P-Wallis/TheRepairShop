@@ -43,12 +43,12 @@ public class WorkerRegion : RegionBase
 
     IEnumerator Work()
     {
+        progressBar.localScale = new Vector3(1f, 0.2f, 1f);
+
         m_working = true;
         m_item.transform.parent = transform;
         m_item.transform.localPosition = Vector3.zero;
         Debug.Log("Working...");
-
-        
 
         float t = 0f;
         Vector3 startScale = progressBar.localScale;
