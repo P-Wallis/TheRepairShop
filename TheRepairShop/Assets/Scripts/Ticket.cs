@@ -26,8 +26,9 @@ public class Ticket : MonoBehaviour
     enum CustomerImage { happy, neutral, sad };
     CustomerImage curCustImg = CustomerImage.happy;
 
-    [HideInInspector] public enum ItemType { red, green, blue };
+    [HideInInspector]public enum ItemType { red, green, blue };
     public ItemType itemType;
+    string itemTypeID;
 
     //enum ItemImage { red, green, blue };
 
@@ -53,7 +54,7 @@ public class Ticket : MonoBehaviour
     {
         type = item.GetRequiredWork();
 
-        custPortImgGUIDs = AssetDatabase.FindAssets("-CustomerPortrait-", new[] { "Assets/UI/Images" });
+        custPortImgGUIDs = AssetDatabase.FindAssets("Customer_", new[] { "Assets/UI/Images" });
         itemImgGUIDs = AssetDatabase.FindAssets("-ItemImage-", new[] { "Assets/UI/Images" });
 
         custPortList = new List<Sprite>();
@@ -114,12 +115,32 @@ public class Ticket : MonoBehaviour
             if (curCustImg == CustomerImage.happy)
             {
                 curCustImg = CustomerImage.neutral;
-                custPortImgSrc.sprite = custPortList.Find(item => item.name.Contains("Neutral"));
+
+
+                switch (itemType)
+                {
+                    case ItemType.red:
+                        itemTypeID = "2_";
+                        break;
+                    case ItemType.green:
+                        itemTypeID = "1_";
+                        break;
+                    case ItemType.blue:
+                        itemTypeID = "3_";
+                        break;
+                    default:
+                        Debug.Log("None");
+                        break;
+                }
+
+                Debug.Log(itemTypeID);
+
+                custPortImgSrc.sprite = custPortList.Find(item => item.name.Contains(itemTypeID + "Neutral"));  //"Neutral_"
             }
             else if (curCustImg == CustomerImage.neutral)
             {
                 curCustImg = CustomerImage.sad;
-                custPortImgSrc.sprite = custPortList.Find(item => item.name.Contains("Sad"));
+                custPortImgSrc.sprite = custPortList.Find(item => item.name.Contains(itemTypeID + "Angry"));  //"Sad_"
             }
 
             if(curCustImg != CustomerImage.sad)
