@@ -92,13 +92,13 @@ public class Ticket : MonoBehaviour
     {
         changePortraitTimer += Time.deltaTime;
 
-        if (changePortraitTimer >= GameManager.ticketReductionIncrement)
+        if (changePortraitTimer >= GameManager.instance.ticketReductionIncrement)
         {
             changePortraitTimer = Mathf.Epsilon;
             if (curCustImg == CustomerImage.happy)
-                sliderSrc.value -= GameManager.ticketReductionIncrement / timeLimit;
+                sliderSrc.value -= GameManager.instance.ticketReductionIncrement / timeLimit;
             else
-                sliderSrc.value -= GameManager.ticketReductionIncrement / timeLimit * 1.5f;
+                sliderSrc.value -= GameManager.instance.ticketReductionIncrement / timeLimit * GameManager.instance.ticketReductionMultiplier;
         }
 
         if (sliderSrc.value >= 0.66)
