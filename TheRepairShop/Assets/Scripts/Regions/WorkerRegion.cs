@@ -43,11 +43,10 @@ public class WorkerRegion : RegionBase
     IEnumerator Work()
     {
         m_working = true;
-        m_item.transform.parent = transform;
-        m_item.transform.localPosition = Vector3.zero;
+        m_item.MoveToPosition(transform, Vector3.zero);
         Debug.Log("Working...");
         yield return new WaitForSeconds(m_worktime);
-        m_item.transform.localPosition = Vector3.up;
+        m_item.MoveToPosition(transform, Vector3.up);
         m_item.WorkDone();
         Debug.Log("Done!");
         m_working = false;
