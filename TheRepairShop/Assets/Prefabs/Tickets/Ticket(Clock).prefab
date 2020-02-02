@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 2498765674390548534}
   - component: {fileID: 4188769388688925971}
   m_Layer: 5
-  m_Name: Ticket(Red)
+  m_Name: Ticket(Clock)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   fillSrc: {fileID: 5693406371097702543}
   timeLimit: 5
   curCustImg: 0
-  itemType: 0
+  itemType: 3
 --- !u!1 &2396628624332906690
 GameObject:
   m_ObjectHideFlags: 0
