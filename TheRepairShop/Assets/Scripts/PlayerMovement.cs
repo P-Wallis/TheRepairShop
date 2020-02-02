@@ -8,7 +8,15 @@ public class PlayerMovement : MonoBehaviour
     const string c_horizontalAxis = "Horizontal";
     const string c_verticalAxis = "Vertical";
     public Transform m_animObject;
+    private Animator m_animator;
     public float m_turnSpeed = 10f;
+    private bool m_wasWalking = false;
+
+    private void Start()
+    {
+        if (m_animObject != null)
+            m_animator = m_animObject.GetComponent<Animator>();
+    }
 
     void FixedUpdate()
     {
@@ -24,6 +32,15 @@ public class PlayerMovement : MonoBehaviour
                 float rot = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
                 m_animObject.localRotation = Quaternion.Lerp(m_animObject.localRotation, Quaternion.Euler(0, rot, 0), Time.deltaTime * m_turnSpeed);
             }
+            if (!m_wasWalking && m_animator)
+            {
+                m_animator.SetBool("IsWalking", true);
+                m_wasWalking = true;
+            }
+        } else if (m_wasWalking && m_animator)
+        {
+            m_animator.SetBool("IsWalking", false);
+            m_wasWalking = false;
         }
 
         if (isMoving)
