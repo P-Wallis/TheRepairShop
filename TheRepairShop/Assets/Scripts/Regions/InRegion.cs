@@ -25,7 +25,7 @@ public class InRegion : RegionBase
         for (int i = 0; i < itemsParent.childCount; i++)
         {
             iteminqueue = itemsParent.GetChild(i).GetComponent<Item>();
-            iteminqueue.MoveToPosition(itemsParent, Vector3.right * i);
+            iteminqueue.MoveToPosition(itemsParent, Vector3.right * ((i-1)*2));
         }
 
         m_itemQueue.Enqueue(item);
