@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     int CurrentLevel = 0;
     int TotalReceivedItems = 0;
     int TotalSuccess = 0;
-    float levelTimer;
+    public float levelLength => LevelData.Levels[CurrentLevel].LevelLengthSeconds;
+    public float levelTimer;
     float waitTimer;
     public bool IsGameRunning = true;
     public GameObject ticket;
@@ -49,12 +50,10 @@ public class GameManager : MonoBehaviour
                 )
             );
         }
-
-        AddAnotherTicket();
     }
     private void Start()
     {
-
+        AddAnotherTicket();
         AudioPlayer.Instance.PlayAudioOnce("GameStart");
         AudioPlayer.Instance.PlayAudioLoop("BackgroundMusic1");
     }
@@ -94,18 +93,19 @@ public class GameManager : MonoBehaviour
     {
         if (pendingTickets.Count < 6 && completedTickets.Count<18)
         {
-            var randInt = Random.Range(0, ticketList.Count);
-
-            ticket = ticketList[randInt];
-
-            GameObject ticketGameObject = Instantiate(ticket, UICanvas);
 
             //We Choose Item to instantiate according to LevelData.
             var itemDifficultyData = LevelData.Levels[CurrentLevel].ChooseOneItem();
-            GameObject itemGameObject = Instantiate(items.Find((x)=>x.m_name == itemDifficultyData.ItemName)).gameObject;
+            GameObject itemGameObject = Instantiate(items.Find((x) => x.m_name == itemDifficultyData.ItemName)).gameObject;
+
+            //The name of the ticket should be "Ticket(<Item-Name>)".
+            ticket = ticketList.Find((x)=>x.name == "Ticket("+ itemGameObject.GetComponent<Item>().m_name+")");
+
+            GameObject ticketGameObject = Instantiate(ticket, UICanvas);
+
+            
 
             Ticket ticketScript = ticketGameObject.GetComponent<Ticket>();
-            ticketScript.timeLimit = itemDifficultyData.TimeGiven;
             ticketScript.item = itemGameObject.GetComponent<Item>();
             ticketScript.item.ticket = ticketScript;
             pendingTickets.Add(ticketScript);
