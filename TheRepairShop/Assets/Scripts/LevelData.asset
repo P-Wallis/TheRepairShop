@@ -14,34 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - LevelLengthSeconds: 180
+    ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
   - LevelLengthSeconds: 180
+    ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
   - LevelLengthSeconds: 180
+    ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
   - LevelLengthSeconds: 180
+    ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
   - LevelLengthSeconds: 180
+    ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
   - LevelLengthSeconds: 180
+    ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
   - LevelLengthSeconds: 180
+    ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
   - LevelLengthSeconds: 180
+    ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
       Probability: 1
