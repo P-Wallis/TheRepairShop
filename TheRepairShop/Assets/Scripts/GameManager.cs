@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     string[] ticketPrefabGUIDs;
     List<GameObject> ticketList;
 
-    public static float ticketReductionIncrement = 0.01f;
-    [Range(1,10)]public float multiplier = 1.5f;
+    [Range(0.01f, 0.25f)] public float ticketReductionIncrement = 0.01f;
+    [Range(1f, 2f)] public float ticketReductionMultiplier = 1.5f;
 
     private void Awake()
     {

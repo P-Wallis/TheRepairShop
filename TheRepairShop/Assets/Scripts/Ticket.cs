@@ -6,8 +6,6 @@ using UnityEditor;
 
 public class Ticket : MonoBehaviour
 {
-    //GameManager gm;
-
     public Image custPortImgSrc, itemImgSrc;
 
     string[] custPortImgGUIDs, itemImgGUIDs;
@@ -30,6 +28,8 @@ public class Ticket : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioPlayer.Instance.PlayAudioOnce("Bell1");
+
         InitializeVars();
         //AssignRandomImage();
     }
@@ -94,13 +94,13 @@ public class Ticket : MonoBehaviour
     {
         changePortraitTimer += Time.deltaTime;
 
-        if (changePortraitTimer >= GameManager.ticketReductionIncrement)
+        if (changePortraitTimer >= GameManager.instance.ticketReductionIncrement)
         {
             changePortraitTimer = Mathf.Epsilon;
             if (curCustImg == CustomerImage.happy)
-                sliderSrc.value -= GameManager.ticketReductionIncrement / timeLimit;
+                sliderSrc.value -= GameManager.instance.ticketReductionIncrement / timeLimit;
             else
-                sliderSrc.value -= GameManager.ticketReductionIncrement / timeLimit * 1.5f;
+                sliderSrc.value -= GameManager.instance.ticketReductionIncrement / timeLimit * GameManager.instance.ticketReductionMultiplier;
         }
 
         if (sliderSrc.value >= 0.66)

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657642, g: 0.49641156, b: 0.5748181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -187,6 +187,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &177450305
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4169535802102796289, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169535802102796348, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169535802102796348, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169535802102796348, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169535802102796348, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169535802102796348, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169535802102796348, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169535802102796348, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169535802102796348, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169535802102796348, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169535802102796348, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169535802102796348, guid: 86f31451246edc447a2fd7fafb31012f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 86f31451246edc447a2fd7fafb31012f, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +469,8 @@ MonoBehaviour:
   ticket: {fileID: 2281213227623019068, guid: 7d3d3fc35c5122d4f81f1ee79c7ee5db, type: 3}
   item: {fileID: 8332843913354016990, guid: 500fbb037804c4413951021ba40793be, type: 3}
   UICanvas: {fileID: 1365081614}
+  ticketReductionIncrement: 0.01
+  ticketReductionMultiplier: 1.5
 --- !u!4 &1991124568
 Transform:
   m_ObjectHideFlags: 0
@@ -633,7 +704,7 @@ PrefabInstance:
     - target: {fileID: 9068050097647053901, guid: 7cfc0fa68f3d5492d9226c8b0084923b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9068050097647053901, guid: 7cfc0fa68f3d5492d9226c8b0084923b,
         type: 3}
@@ -643,7 +714,7 @@ PrefabInstance:
     - target: {fileID: 9068050097647053901, guid: 7cfc0fa68f3d5492d9226c8b0084923b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9068050097647053901, guid: 7cfc0fa68f3d5492d9226c8b0084923b,
         type: 3}
@@ -658,7 +729,7 @@ PrefabInstance:
     - target: {fileID: 9068050097647053901, guid: 7cfc0fa68f3d5492d9226c8b0084923b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9068050097647053901, guid: 7cfc0fa68f3d5492d9226c8b0084923b,
         type: 3}
