@@ -20,10 +20,13 @@ public class WorkerRegion : RegionBase
 
     public Transform progressBar;
     public Animator m_animator;
+    public ParticleSystem m_particles;
 
     void Start()
     {
         progressBar.localScale = new Vector3(0, 0.2f, 1f);
+        if (m_particles != null)
+            m_particles.Stop();
     }
 
     public override Item ItemInteraction(Item playerItem)
@@ -57,6 +60,8 @@ public class WorkerRegion : RegionBase
         m_item.MoveToPosition(transform, Vector3.zero);
         if(m_animator!=null)
             m_animator.SetBool("Working", true);
+        if (m_particles != null)
+            m_particles.Play();
         switch (m_type)
         {
             case WorkType.NONE:
@@ -88,6 +93,8 @@ public class WorkerRegion : RegionBase
         AudioPlayer.Instance.PlayAudioOnce("Alert");
         if (m_animator != null)
             m_animator.SetBool("Working", false);
+        if(m_particles != null)
+            m_particles.Stop();
         m_working = false;
     }
 }

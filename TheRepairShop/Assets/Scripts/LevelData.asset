@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - LevelLengthSeconds: 180
-    ItemIncomeTermSeconds: 5
+    ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: Radio
       Probability: 0.25
