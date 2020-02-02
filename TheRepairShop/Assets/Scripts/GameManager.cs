@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public List<Item> items;
     public Transform UICanvas;
     [SerializeField] LevelSerializationObject LevelData;
-    List<GameObject> ticketList;
+    public List<GameObject> ticketList;
     [HideInInspector] public List<Ticket> pendingTickets = new List<Ticket>();
     [HideInInspector] public List<Ticket> completedTickets = new List<Ticket>();
 
@@ -39,17 +39,7 @@ public class GameManager : MonoBehaviour
         levelTimer = LevelData.Levels[CurrentLevel].LevelLengthSeconds;
         waitTimer = 0;
 
-        string[] ticketPrefabGUIDs = AssetDatabase.FindAssets("Ticket(");
-        ticketList = new List<GameObject>();
-
-        foreach (string guid in ticketPrefabGUIDs)
-        {
-            ticketList.Add(
-                (GameObject)AssetDatabase.LoadAssetAtPath(
-                    AssetDatabase.GUIDToAssetPath(guid), typeof(GameObject)
-                )
-            );
-        }
+        
     }
     private void Start()
     {

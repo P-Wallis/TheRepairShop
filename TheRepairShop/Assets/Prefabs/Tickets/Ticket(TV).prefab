@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 2498765674390548534}
   - component: {fileID: 4188769388688925971}
   m_Layer: 5
-  m_Name: Ticket(Blue)
+  m_Name: Ticket(TV)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,8 +268,19 @@ MonoBehaviour:
   item: {fileID: 0}
   custPortImgSrc: {fileID: 1426700982709084013}
   itemImgSrc: {fileID: 820425584953737217}
-  custPortList: []
-  itemImgList: []
+  custPortList:
+  - {fileID: 21300000, guid: 22221a0a6e6f2f047b353c54eced61f5, type: 3}
+  - {fileID: 21300000, guid: 659efaa4835b8b74090703e3134ef3c5, type: 3}
+  - {fileID: 21300000, guid: a9449b6c28bfbc941af60670be11a8df, type: 3}
+  - {fileID: 21300000, guid: 532e97f0a715e8f4a9973eed93e2dc9a, type: 3}
+  - {fileID: 21300000, guid: 510e1d890ee3cb546a421a1fff89c098, type: 3}
+  - {fileID: 21300000, guid: f93d4edc777d2bc4d80469c4e19027de, type: 3}
+  - {fileID: 21300000, guid: 65cf1efcf83a21f4c858e8e9ef5d2e68, type: 3}
+  - {fileID: 21300000, guid: 7c4c819d9a9ead04e91e2f50da1777b4, type: 3}
+  - {fileID: 21300000, guid: a3ee74311a686c54fa7d569cad3f76a7, type: 3}
+  - {fileID: 21300000, guid: a2930cdfdfca98c48b0c13a5f1757d14, type: 3}
+  - {fileID: 21300000, guid: 0eb8575d53bd6f14e9d68bf4552c87b5, type: 3}
+  - {fileID: 21300000, guid: f21ab146d0fa2d04f9fefa45aca7694c, type: 3}
   sliderSrc: {fileID: 2818140311254871041}
   fillSrc: {fileID: 5693406371097702543}
   timeLimit: 20

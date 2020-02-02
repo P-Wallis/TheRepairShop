@@ -12,7 +12,7 @@ public class Ticket : MonoBehaviour
     public Image custPortImgSrc, itemImgSrc;
 
     string[] custPortImgGUIDs, itemImgGUIDs;
-    public List<Sprite> custPortList, itemImgList;
+    public List<Sprite> custPortList;
 
     public Slider sliderSrc;
     public Image fillSrc;
@@ -54,41 +54,11 @@ public class Ticket : MonoBehaviour
     {
         type = item.GetRequiredWork();
 
-        custPortImgGUIDs = AssetDatabase.FindAssets("Customer_", new[] { "Assets/UI/Images" });
-        itemImgGUIDs = AssetDatabase.FindAssets("-ItemImage-", new[] { "Assets/UI/Images" });
+        
 
-        custPortList = new List<Sprite>();
-        itemImgList = new List<Sprite>();
-
-        BuildImageLists();
     }
 
-    void BuildImageLists()
-    {
-        var flag = true;
-
-        foreach (string guid in custPortImgGUIDs)
-        {
-            if (flag)
-                custPortList.Add(
-                    (Sprite)AssetDatabase.LoadAssetAtPath(
-                        AssetDatabase.GUIDToAssetPath(guid), typeof(Sprite)
-                    )
-                );
-            flag = !flag;
-        }
-
-        foreach (string guid in itemImgGUIDs)
-        {
-            if (flag)
-                itemImgList.Add(
-                    (Sprite)AssetDatabase.LoadAssetAtPath(
-                        AssetDatabase.GUIDToAssetPath(guid), typeof(Sprite)
-                    )
-                );
-            flag = !flag;
-        }
-    }
+   
 
     void ChangeCustomerPortrait()
     {
