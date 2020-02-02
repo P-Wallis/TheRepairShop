@@ -91,6 +91,8 @@ public class Ticket : MonoBehaviour
 
     void ChangeCustomerPortrait()
     {
+        if (!GameManager.instance.IsGameRunning)
+            return;
         changePortraitTimer += Time.deltaTime;
 
         if (changePortraitTimer >= GameManager.instance.ticketReductionIncrement)
