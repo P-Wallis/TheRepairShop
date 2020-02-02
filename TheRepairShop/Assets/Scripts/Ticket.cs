@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class Ticket : MonoBehaviour
 {
-    GameManager gm;
+    //GameManager gm;
 
     public Image custPortImgSrc, itemImgSrc;
 
@@ -43,7 +43,7 @@ public class Ticket : MonoBehaviour
 
     void InitializeVars()
     {
-        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        //gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         custPortImgGUIDs = AssetDatabase.FindAssets("-CustomerPortrait-", new[] { "Assets/UI/Images" });
         itemImgGUIDs = AssetDatabase.FindAssets("-ItemImage-", new[] { "Assets/UI/Images" });
@@ -94,13 +94,13 @@ public class Ticket : MonoBehaviour
     {
         changePortraitTimer += Time.deltaTime;
 
-        if (changePortraitTimer >= gm.ticketReductionIncrement)
+        if (changePortraitTimer >= GameManager.ticketReductionIncrement)
         {
             changePortraitTimer = Mathf.Epsilon;
             if (curCustImg == CustomerImage.happy)
-                sliderSrc.value -= gm.ticketReductionIncrement / timeLimit;
+                sliderSrc.value -= GameManager.ticketReductionIncrement / timeLimit;
             else
-                sliderSrc.value -= gm.ticketReductionIncrement / timeLimit * 1.5f;
+                sliderSrc.value -= GameManager.ticketReductionIncrement / timeLimit * 1.5f;
         }
 
         if (sliderSrc.value >= 0.66)
