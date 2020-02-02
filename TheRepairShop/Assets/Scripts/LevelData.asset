@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelData
   m_EditorClassIdentifier: 
   Levels:
-  - LevelLengthSeconds: 180
+  - LevelLengthSeconds: 20
     ItemIncomeTermSeconds: 10
     ItemDistribution:
     - ItemName: TV
