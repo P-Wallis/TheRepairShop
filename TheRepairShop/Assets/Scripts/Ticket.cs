@@ -26,7 +26,7 @@ public class Ticket : MonoBehaviour
     public enum CustomerImage { happy, neutral, sad };
     public CustomerImage curCustImg = CustomerImage.happy;
 
-    [HideInInspector]public enum ItemType { red, green, blue };
+    [HideInInspector]public enum ItemType { radio, guitar, TV, clock };
     public ItemType itemType;
     string itemTypeID;
 
@@ -121,14 +121,17 @@ public class Ticket : MonoBehaviour
 
                 switch (itemType)
                 {
-                    case ItemType.red:
+                    case ItemType.radio:
                         itemTypeID = "2_";
                         break;
-                    case ItemType.green:
+                    case ItemType.guitar:
                         itemTypeID = "1_";
                         break;
-                    case ItemType.blue:
+                    case ItemType.TV:
                         itemTypeID = "3_";
+                        break;
+                    case ItemType.clock:
+                        itemTypeID = "4_";
                         break;
                     default:
                         Debug.Log("None");

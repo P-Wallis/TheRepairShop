@@ -41,8 +41,10 @@ public class LevelResultPanel : MonoBehaviour
     public void OnNextLevelButton() 
     
     {
-        OnNextLevel?.Invoke();
-    
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //There is no such a thing as the next level
+        //OnNextLevel?.Invoke();
+
     }
 
     public void OnReplayButton()
