@@ -11,7 +11,7 @@ public class OutRegion : RegionBase
         if (playerItem != null && playerItem.GetRequiredWork() == WorkType.NONE)
         {
             m_items.Add(playerItem);
-            playerItem.MoveToPosition(transform, Vector3.up * (m_items.Count));
+            playerItem.MoveToPosition(transform, Vector3.left * (m_items.Count-2));
             GameManager.instance.TicketComplete(playerItem.ticket);
             return null;
         }

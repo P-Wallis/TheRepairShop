@@ -24,7 +24,7 @@ using System.Linq;
     /// </summary>
     /// <returns></returns>
     public ItemDifficultyData ChooseOneItem() {
-        var f = UnityEngine.Random.Range(0, 1);
+        var f = UnityEngine.Random.value;
         float s = 0f;
         for (int p = 0; p < ItemDistribution.Count; p++)
         {
