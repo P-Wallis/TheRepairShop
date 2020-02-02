@@ -1252,6 +1252,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 6.62
       objectReference: {fileID: 0}
+    - target: {fileID: 4428876850039398072, guid: 67ab3d6e5ff6149dd800c75c050315c4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6207142906303343358, guid: 67ab3d6e5ff6149dd800c75c050315c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1667,6 +1672,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 6.62
       objectReference: {fileID: 0}
+    - target: {fileID: 8513168401896927376, guid: be6d94927b111433dabc5e74d47164b1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8802118173490485906, guid: be6d94927b111433dabc5e74d47164b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1838,6 +1848,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarpenterRegion
       objectReference: {fileID: 0}
+    - target: {fileID: 5784242575013164155, guid: 26e32433a762845b487c5f8b5de6c8db,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6527722359341267130, guid: 26e32433a762845b487c5f8b5de6c8db,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1958,6 +1973,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MechanicRegion
       objectReference: {fileID: 0}
+    - target: {fileID: 5958162152417673255, guid: 9e1fb87bc179c41ed81a0dae45598ad3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6821856885835311653, guid: 9e1fb87bc179c41ed81a0dae45598ad3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2043,6 +2063,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8826144202459670152}
     m_Modifications:
+    - target: {fileID: 2875115097342838046, guid: 551aa8906583740b3958493a804f8ec6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3163158252434747164, guid: 551aa8906583740b3958493a804f8ec6,
         type: 3}
       propertyPath: m_LocalPosition.x
