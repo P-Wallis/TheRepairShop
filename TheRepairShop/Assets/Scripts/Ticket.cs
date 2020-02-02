@@ -6,6 +6,8 @@ using UnityEditor;
 
 public class Ticket : MonoBehaviour
 {
+    GameManager gm;
+
     public Image custPortImgSrc, itemImgSrc;
 
     string[] custPortImgGUIDs, itemImgGUIDs;
@@ -29,7 +31,7 @@ public class Ticket : MonoBehaviour
     void Start()
     {
         InitializeVars();
-        AssignRandomImage();
+        //AssignRandomImage();
     }
 
     // Update is called once per frame
@@ -41,6 +43,8 @@ public class Ticket : MonoBehaviour
 
     void InitializeVars()
     {
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
         custPortImgGUIDs = AssetDatabase.FindAssets("-CustomerPortrait-", new[] { "Assets/UI/Images" });
         itemImgGUIDs = AssetDatabase.FindAssets("-ItemImage-", new[] { "Assets/UI/Images" });
 
@@ -90,13 +94,13 @@ public class Ticket : MonoBehaviour
     {
         changePortraitTimer += Time.deltaTime;
 
-        if (changePortraitTimer >= 0.1f)
+        if (changePortraitTimer >= gm.ticketReductionIncrement)
         {
             changePortraitTimer = Mathf.Epsilon;
             if (curCustImg == CustomerImage.happy)
-                sliderSrc.value -= timeLimit * 0.001f;
+                sliderSrc.value -= gm.ticketReductionIncrement / timeLimit;
             else
-                sliderSrc.value -= timeLimit * 0.001f * 1.5f;
+                sliderSrc.value -= gm.ticketReductionIncrement / timeLimit * 1.5f;
         }
 
         if (sliderSrc.value >= 0.66)
