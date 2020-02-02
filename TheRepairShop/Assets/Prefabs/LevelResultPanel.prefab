@@ -271,7 +271,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Final Reputation
+  m_Text: Your Score
 --- !u!1 &7185275481365269622
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Success
+  m_Text: Delivered
 --- !u!1 &7185275481376691711
 GameObject:
   m_ObjectHideFlags: 0
