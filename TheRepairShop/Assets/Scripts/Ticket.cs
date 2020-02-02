@@ -6,8 +6,6 @@ using UnityEditor;
 
 public class Ticket : MonoBehaviour
 {
-    //GameManager gm;
-
     public Image custPortImgSrc, itemImgSrc;
 
     string[] custPortImgGUIDs, itemImgGUIDs;
