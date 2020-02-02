@@ -6,39 +6,49 @@ using UnityEditor;
 
 public class Ticket : MonoBehaviour
 {
-    Image custPortImgSrc, itemImgSrc;
+    [HideInInspector] public Item item;
+    WorkType type;
+
+    public Image custPortImgSrc, itemImgSrc;
 
     string[] custPortImgGUIDs, itemImgGUIDs;
-    List<Sprite> custPortList, itemImgList;
+    public List<Sprite> custPortList, itemImgList;
+
+    public Slider sliderSrc;
+    public Image fillSrc;
+    float changePortraitTimer = Mathf.Epsilon;
+
+    [Range(1, 20)] public int timeLimit = 10;
 
     enum CustomerImage { happy, neutral, sad };
-    enum ItemImage { red, green, blue };
+    CustomerImage curCustImg = CustomerImage.happy;
+
+    [HideInInspector] public enum ItemType { red, green, blue };
+    public ItemType itemType;
+
+    //enum ItemImage { red, green, blue };
 
     // Start is called before the first frame update
     void Start()
     {
+        AudioPlayer.Instance.PlayAudioOnce("Bell1");
+
         InitializeVars();
 
-        AssignRandomImage();
-
-        // Experimental code:
-        CustomerImage curCustImg;
-        curCustImg = CustomerImage.happy;
-
-        ItemImage curItemImg;
-        curItemImg = ItemImage.red;
+        AssignTicketTypeImage();
+        //AssignRandomImage();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ChangeCustomerPortrait();
+        //DestroyOnFail();
     }
 
     void InitializeVars()
     {
-        custPortImgSrc = gameObject.GetComponentsInChildren<Image>()[1];
-        itemImgSrc = gameObject.GetComponentsInChildren<Image>()[2];
+        type = item.GetRequiredWork();
 
         custPortImgGUIDs = AssetDatabase.FindAssets("-CustomerPortrait-", new[] { "Assets/UI/Images" });
         itemImgGUIDs = AssetDatabase.FindAssets("-ItemImage-", new[] { "Assets/UI/Images" });
@@ -76,12 +86,64 @@ public class Ticket : MonoBehaviour
         }
     }
 
-    void AssignRandomImage()
+    void ChangeCustomerPortrait()
     {
-        var randInt = Random.Range(0, custPortList.Count);
-        custPortImgSrc.sprite = custPortList[randInt];
+        changePortraitTimer += Time.deltaTime;
 
-        randInt = Random.Range(0, itemImgList.Count);
-        itemImgSrc.sprite = itemImgList[randInt];
+        if (changePortraitTimer >= GameManager.instance.ticketReductionIncrement)
+        {
+            changePortraitTimer = Mathf.Epsilon;
+            if (curCustImg == CustomerImage.happy)
+                sliderSrc.value -= GameManager.instance.ticketReductionIncrement / timeLimit;
+            else
+                sliderSrc.value -= GameManager.instance.ticketReductionIncrement / timeLimit * GameManager.instance.ticketReductionMultiplier;
+        }
+
+        if (sliderSrc.value >= 0.66)
+            fillSrc.color = Color.green;
+        else if (sliderSrc.value < 0.66 && sliderSrc.value >= 0.33)
+            fillSrc.color = Color.yellow;
+        else
+            fillSrc.color = Color.red;
+
+        if (sliderSrc.value <= 0)
+        {
+            if (curCustImg == CustomerImage.happy)
+            {
+                curCustImg = CustomerImage.neutral;
+                custPortImgSrc.sprite = custPortList.Find(item => item.name.Contains("Neutral"));
+            }
+            else if (curCustImg == CustomerImage.neutral)
+            {
+                curCustImg = CustomerImage.sad;
+                custPortImgSrc.sprite = custPortList.Find(item => item.name.Contains("Sad"));
+            }
+
+            sliderSrc.value = 1;
+        }
     }
+
+    void AssignTicketTypeImage()
+    {
+        if (type == WorkType.CARPENTER)
+        {
+            print("this is for carpenter");
+        }
+        else
+            print("this is not for carpenter");
+    }
+
+    //void AssignRandomImage()
+    //{
+    //    var randInt = Random.Range(0, custPortList.Count);
+    //    //custPortImgSrc.sprite = custPortList[randInt];
+
+    //    //randInt = Random.Range(0, itemImgList.Count);
+    //    itemImgSrc.sprite = itemImgList[randInt];
+    //}
+
+    //void DestroyOnFail()
+    //{
+    //    if (curProgress <= 0) Destroy(gameObject);
+    //}
 }
