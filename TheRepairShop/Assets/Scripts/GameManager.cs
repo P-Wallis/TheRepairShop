@@ -107,16 +107,28 @@ public class GameManager : MonoBehaviour
         completedTickets.Add(completedTicket);
         TotalSuccess++;
     }
+
+    /// <summary>
+    /// Called when the level ends
+    /// </summary>
     public void LevelEnd() {
         IsGameRunning = false;
         LevelResultPanel.Instance.LevelEnd(TotalReceivedItems, TotalSuccess);
 
     }
+
+    /// <summary>
+    /// Currently not called. Called when the next level starts
+    /// </summary>
     public void NextLevel() {
         if (CurrentLevel + 1 < LevelData.Levels.Count) CurrentLevel++;
         else GameEnd();
     }
 
+
+    /// <summary>
+    /// Currently not called. Called when the game with multiple level ends
+    /// </summary>
     public void GameEnd() { 
     
     }
