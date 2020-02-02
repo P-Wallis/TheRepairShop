@@ -23,8 +23,8 @@ public class Ticket : MonoBehaviour
     /// </summary>
     [Range(1, 20)] public float timeLimit = 10;
 
-    enum CustomerImage { happy, neutral, sad };
-    CustomerImage curCustImg = CustomerImage.happy;
+    public enum CustomerImage { happy, neutral, sad };
+    public CustomerImage curCustImg = CustomerImage.happy;
 
     [HideInInspector]public enum ItemType { red, green, blue };
     public ItemType itemType;
