@@ -1,21 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     float levelTimer;
     float waitTimer;
     public GameObject ticket;
     public GameObject item;
     public Transform UICanvas;
 
-    void Start()
+    string[] ticketPrefabGUIDs;
+    List<GameObject> ticketList;
+
+    public static float ticketReductionIncrement = 0.01f;
+    [Range(1,10)]public float multiplier = 1.5f;
+
+    private void Awake()
     {
+        instance = this;
+
         levelTimer = 180;
         waitTimer = 0;
+
+        ticketPrefabGUIDs = AssetDatabase.FindAssets("Ticket(");
+        ticketList = new List<GameObject>();
+
+        foreach (string guid in ticketPrefabGUIDs)
+        {
+            ticketList.Add(
+                (GameObject)AssetDatabase.LoadAssetAtPath(
+                    AssetDatabase.GUIDToAssetPath(guid), typeof(GameObject)
+                )
+            );
+        }
+
         AddAnotherTicket();
-        
     }
 
     void Update()
@@ -30,11 +53,15 @@ public class GameManager : MonoBehaviour
             AddAnotherTicket();
         }
         //Debug.Log(levelTimer);
-        Debug.Log(waitTimer);
+        //Debug.Log(waitTimer);
     }
 
     public void AddAnotherTicket()
     {
+        var randInt = Random.Range(0, ticketList.Count);
+
+        ticket = ticketList[randInt];
+
         Instantiate(ticket, UICanvas);
         GameObject itemGameObject = Instantiate(item) as GameObject;
         InRegion.instance.AddItemToQueue(itemGameObject);
