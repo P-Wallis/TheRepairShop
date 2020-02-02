@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
             GameObject itemGameObject = Instantiate(items.Find((x)=>x.m_name == itemDifficultyData.ItemName)).gameObject;
 
             Ticket ticketScript = ticketGameObject.GetComponent<Ticket>();
-            ticketScript.timeLimit = itemDifficultyData.TimeGiven;
             ticketScript.item = itemGameObject.GetComponent<Item>();
             ticketScript.item.ticket = ticketScript;
             pendingTickets.Add(ticketScript);
