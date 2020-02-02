@@ -50,12 +50,10 @@ public class GameManager : MonoBehaviour
                 )
             );
         }
-
-        AddAnotherTicket();
     }
     private void Start()
     {
-
+        AddAnotherTicket();
         AudioPlayer.Instance.PlayAudioOnce("GameStart");
         AudioPlayer.Instance.PlayAudioLoop("BackgroundMusic1");
     }
