@@ -11,4 +11,5 @@ public class RegionBase : MonoBehaviour
     }
 
     public virtual Item ItemInteraction(Item playerItem) { return null; }
+
 }
