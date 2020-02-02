@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     float levelTimer;
     float waitTimer;
     public GameObject ticket;
-    public GameObject item;
+    public GameObject[] items;
     public Transform UICanvas;
 
     List<GameObject> ticketList;
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
             ticket = ticketList[randInt];
 
             GameObject ticketGameObject = Instantiate(ticket, UICanvas);
-            GameObject itemGameObject = Instantiate(item) as GameObject;
+            GameObject itemGameObject = Instantiate(items[Random.Range(0,items.Length)]);
 
             Ticket ticketScript = ticketGameObject.GetComponent<Ticket>();
             ticketScript.item = itemGameObject.GetComponent<Item>();
