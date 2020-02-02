@@ -60,13 +60,13 @@ public class WorkerRegion : RegionBase
             case WorkType.NONE:
                 break;
             case WorkType.CARPENTER:
-                AudioID = AudioPlayer.Instance.PlayAudioLoop("Sawing");
+                AudioID = AudioPlayer.Instance.PlayAudioLoop("AnvilHammering");
                 break;
             case WorkType.MECHANIC:
-                AudioID = AudioPlayer.Instance.PlayAudioLoop("Welding");
+                AudioID = AudioPlayer.Instance.PlayAudioLoop("Screwdriver");
                 break;
             case WorkType.PAINTER:
-                AudioID = AudioPlayer.Instance.PlayAudioLoop("Painting");
+                AudioID = AudioPlayer.Instance.PlayAudioLoop("Welding");
                 break;
         }
 
