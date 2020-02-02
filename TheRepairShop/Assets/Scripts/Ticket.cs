@@ -6,6 +6,8 @@ using UnityEditor;
 
 public class Ticket : MonoBehaviour
 {
+    [HideInInspector] public Item item;
+
     public Image custPortImgSrc, itemImgSrc;
 
     string[] custPortImgGUIDs, itemImgGUIDs;
@@ -43,7 +45,7 @@ public class Ticket : MonoBehaviour
 
     void InitializeVars()
     {
-        //gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        WorkType type = item.GetRequiredWork();
 
         custPortImgGUIDs = AssetDatabase.FindAssets("-CustomerPortrait-", new[] { "Assets/UI/Images" });
         itemImgGUIDs = AssetDatabase.FindAssets("-ItemImage-", new[] { "Assets/UI/Images" });

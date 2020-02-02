@@ -61,9 +61,13 @@ public class GameManager : MonoBehaviour
         var randInt = Random.Range(0, ticketList.Count);
 
         ticket = ticketList[randInt];
-
-        Instantiate(ticket, UICanvas);
+        
+        GameObject ticketGameObject = Instantiate(ticket, UICanvas);
         GameObject itemGameObject = Instantiate(item) as GameObject;
+
+        Ticket ticketScript = ticketGameObject.GetComponent<Ticket>();
+        ticketScript.item = itemGameObject.GetComponent<Item>();
+
         InRegion.instance.AddItemToQueue(itemGameObject);
         waitTimer = 3;
     }
