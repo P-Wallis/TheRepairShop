@@ -765,7 +765,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65335549086516275}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.97685933, z: 0, w: 0.21388295}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -774,7 +774,7 @@ Transform:
   - {fileID: 1257065324108002981}
   m_Father: {fileID: 9068050097647053901}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 155.3, z: 0}
 --- !u!95 &2141051699105184928
 Animator:
   serializedVersion: 3
@@ -33904,7 +33904,7 @@ Transform:
   m_GameObject: {fileID: 3546122966001744661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7603, y: 1.7603, z: 1.7603}
   m_Children:
   - {fileID: 670044266510042034}
   - {fileID: 3941572770283337248}
@@ -33923,7 +33923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dae8e733dff4e84a92b91ce86b0e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 10
+  m_speed: 7.5
   m_animObject: {fileID: 3941572770283337248}
   m_turnSpeed: 10
 --- !u!54 &7134492155712726753
